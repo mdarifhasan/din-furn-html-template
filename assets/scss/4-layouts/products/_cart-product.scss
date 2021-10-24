@@ -1,0 +1,35 @@
+.cart-product {
+  @include flex(space-between, center);
+  width: 30rem;
+  border: 1px solid $secondary-color;
+  padding: 1rem;
+  .product-img {
+    height: 100%;
+    img {
+      width: 100%;
+    }
+  }
+  .product-desc {
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: $secondary-color;
+      margin-bottom: 0.8rem;
+    }
+    .price-box {
+      @include flex(flex-start, center);
+      font-size: 1.6rem;
+      font-weight: 600;
+      .quantity {
+        width: 5rem;
+      }
+      .multiply {
+        margin: 0 1rem;
+      }
+    }
+  }
+  i.fa-times {
+    cursor: pointer;
+    margin-left: 0.5rem;
+  }
+}

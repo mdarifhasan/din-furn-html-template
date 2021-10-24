@@ -1,0 +1,109 @@
+.header-top {
+  @include flex(space-between, center);
+  padding: 2.5rem 9%;
+  .logo {
+    font-size: 3rem;
+    font-weight: 700;
+    color: $secondary-color;
+  }
+  .search-form {
+    @include flex(space-between, center);
+    border-radius: 3.5rem;
+    padding: 0.6rem 2rem;
+    background: $white;
+    input {
+      background: transparent;
+      border: none;
+      outline: none;
+      width: 50rem;
+      font-family: $secondary-font;
+    }
+    label {
+      cursor: pointer;
+    }
+    @include largeDesktop {
+      display: none;
+    }
+  }
+  .menu-bar {
+    margin-right: 2.5rem;
+    cursor: pointer;
+    display: none;
+    .bar {
+      width: 2.5rem;
+      height: 0.3rem;
+      background-color: $secondary-color;
+      margin: 0.5rem;
+      border-radius: 0.3rem;
+      transition: 0.3s linear;
+    }
+    &.active .bar:first-child {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    &.active .bar:last-child {
+      transform: rotate(-45deg) translate(7px, -8px);
+    }
+    &.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+    // responsive
+    @include tablet {
+      display: inline-block;
+    }
+  }
+  .icons {
+    @include flex(space-between, center);
+    // responsive
+    @include tablet {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      @include flex(center, center);
+      background-color: $primary-color;
+      padding: 1.5rem 0.5rem;
+    }
+    .icon-box {
+      position: relative;
+      // responsive
+      @include tablet {
+        padding: 0.5rem 1rem;
+      }
+
+      i {
+        font-size: 2.5rem;
+        margin-right: 2rem;
+        cursor: pointer;
+        color: $black;
+        &:hover {
+          color: $secondary-color;
+        }
+      }
+      span {
+        position: absolute;
+        top: -10%;
+        right: 20%;
+        background-color: $secondary-color;
+        width: 2rem;
+        height: 2rem;
+        line-height: 2rem;
+        font-size: 1rem;
+        border-radius: 50%;
+        text-align: center;
+        color: $primary-color;
+        // responsive
+        @include tablet {
+          top: 0%;
+          right: 30%;
+        }
+      }
+    }
+  }
+}
+// Mobile search
+#mobile-search-btn {
+  display: none;
+  @include largeDesktop {
+    display: inline-block;
+  }
+}

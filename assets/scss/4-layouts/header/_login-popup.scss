@@ -1,0 +1,61 @@
+.login-user-popup {
+  position: fixed;
+  top: -500%;
+  left: 0%;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: 0.5s ease-in-out;
+  @include flex(center, center);
+  &-box {
+    background-color: $white;
+    width: 50%;
+    height: 50%;
+    @include flex(center, center);
+    flex-direction: column;
+    .login-form {
+      margin: 2rem 0;
+      .input-box {
+        position: relative;
+        width: 30rem;
+        input {
+          width: 100%;
+          padding: 0.8rem 0.5rem;
+          margin: 1rem 0;
+          border: none;
+          border-bottom: 2px solid $secondary-color;
+          outline: none;
+          &:focus {
+            border-bottom: 2px solid $primary-color;
+          }
+        }
+        label {
+          position: absolute;
+          top: 0%;
+          left: 0%;
+          font-size: 1.1rem;
+          text-transform: capitalize;
+          cursor: text;
+          background-color: $white;
+        }
+      }
+      .remember-me {
+        margin: 1rem 0;
+        label {
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+  &.active {
+    top: 0%;
+  }
+  #login-popup-close {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    cursor: pointer;
+    color: $secondary-color;
+    font-size: 3rem;
+  }
+}

@@ -1,0 +1,109 @@
+.header-bottom {
+  position: sticky;
+}
+.navbar {
+  background-color: #fff;
+  padding: 2rem 9%;
+  box-shadow: $box-shadow;
+  ul.navbar-nav {
+    @include flex(center, center);
+
+    li {
+      position: relative;
+      a {
+        margin: 0 1.5rem;
+        text-transform: capitalize;
+        color: $text-color;
+        font-weight: 600;
+        position: relative;
+        &:hover {
+          color: $secondary-color;
+        }
+      }
+      // submenu
+      ul.submenu {
+        position: absolute;
+        top: 250%;
+        left: 0;
+        padding: 1.5rem;
+        box-shadow: $box-shadow;
+        display: block;
+        width: 20rem;
+        background-color: $white;
+        animation: fadeinUp 0.3s ease-in-out;
+        opacity: 0;
+        visibility: hidden;
+        li {
+          padding: 0.7rem 0;
+          &:hover {
+            padding-left: 0.5rem;
+          }
+        }
+      }
+      &:hover ul.submenu {
+        top: 180%;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+  .menu-close {
+    display: none;
+  }
+
+  // responsive
+  @include tablet {
+    // navbar
+    position: fixed;
+    top: 0;
+    left: -100%;
+    visibility: hidden;
+    opacity: 0;
+    width: 35rem;
+    height: 100vh;
+    box-shadow: $dark-shadow;
+    background-color: $white;
+    @include flex(center, center);
+    ul.navbar-nav {
+      flex-direction: column;
+      li {
+        padding: 1.5rem 0;
+        a {
+          font-size: 1.8rem;
+        }
+        // submenu
+
+        ////////
+
+        ul.submenu.mobile-dd {
+          clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+          opacity: 0;
+          visibility: hidden;
+          display: block;
+          background-color: tomato;
+          li {
+            padding: 0.7rem 0;
+            &:hover {
+              padding-left: 0.5rem;
+            }
+          }
+        }
+
+        ////////
+      }
+    }
+    i.menu-close {
+      position: absolute;
+      display: block;
+      top: 5%;
+      right: 8%;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    &.active {
+      visibility: visible;
+      left: 0%;
+      opacity: 1;
+    }
+  }
+}
